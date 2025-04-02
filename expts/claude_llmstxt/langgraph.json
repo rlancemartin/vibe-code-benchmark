@@ -1,0 +1,8 @@
+{
+  "title": "Travel & Hotel Advisory Multi-Agent System",
+  "description": "A multi-agent workflow with travel and hotel advisors that can hand off tasks to each other using Command for control flow",
+  "graph": {
+    "module": "multi_agent",
+    "function": "compile_to_json"
+  }
+}

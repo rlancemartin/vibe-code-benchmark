@@ -1,0 +1,40 @@
+{
+  "title": "Multi-Agent Travel Advisory System",
+  "description": "A LangGraph workflow with specialized travel and hotel advisors that can hand off to each other",
+  "schema": {
+    "input": {
+      "type": "object",
+      "properties": {
+        "messages": {
+          "type": "array",
+          "description": "The conversation messages"
+        }
+      }
+    },
+    "output": {
+      "type": "object",
+      "properties": {
+        "messages": {
+          "type": "array",
+          "description": "The updated conversation with agent responses"
+        },
+        "current_agent": {
+          "type": "string",
+          "description": "The agent that provided the final response"
+        },
+        "travel_context": {
+          "type": "object",
+          "description": "Context information gathered by the travel advisor"
+        },
+        "hotel_context": {
+          "type": "object",
+          "description": "Context information gathered by the hotel advisor"
+        }
+      }
+    }
+  },
+  "config": {
+    "modules": ["multi-agent"],
+    "graph": "build_graph"
+  }
+}

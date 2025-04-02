@@ -1,0 +1,11 @@
+{
+    "dependencies": [
+        "langchain_openai",
+        "langchain_core",
+        "."
+    ],
+    "graphs": {
+        "multi_agent": "./multi-agent.py:compiled_graph"
+    },
+    "python_version": "3.11"
+} 

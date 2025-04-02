@@ -1,0 +1,41 @@
+{
+    "dependencies": [
+        "langchain_anthropic",
+        "langchain_core",
+        "langgraph"
+    ],
+    "env": {
+        "ANTHROPIC_API_KEY": "${ANTHROPIC_API_KEY}"
+    },
+    "graphs": [
+        {
+            "id": "content_router",
+            "description": "A workflow that creates and improves jokes",
+            "entrypoint": "prompt_chaining.py:compiled_graph"
+        },
+        {
+            "id": "joke_evaluator",
+            "description": "A workflow that evaluates joke quality and improves low-quality jokes",
+            "entrypoint": "evaluator-optimizer.py:compiled_graph"
+        },
+        {
+            "id": "content-router",
+            "description": "Routes content requests to appropriate LLM call for stories, poems, or jokes",
+            "entrypoint": "router.compiled_graph"
+        },
+        {
+            "id": "math-agent",
+            "description": "A LangGraph agent that performs arithmetic operations using math tools",
+            "entrypoint": "agent.py:compiled_graph"
+        },
+        {
+            "id": "travel-advisor",
+            "description": "A multi-agent workflow with travel advisor and hotel advisor using Command for handoff",
+            "entrypoint": "multi-agent.py:compiled_graph"
+        }
+    ],
+    "project": {
+        "name": "content-router",
+        "description": "A LangGraph workflow that routes content requests to the appropriate generator"
+    }
+} 

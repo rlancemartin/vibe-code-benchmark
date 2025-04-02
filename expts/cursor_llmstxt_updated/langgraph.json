@@ -1,0 +1,33 @@
+{
+    "title": "LangGraph Examples",
+    "description": "A collection of LangGraph examples including a multi-agent system with travel advisor and hotel advisor.",
+    "graphs": {
+        "router": {
+            "import_path": "router.compiled_graph"
+        },
+        "joke_evaluator": {
+            "import_path": "evaluator_optimizer.compiled_graph"
+        },
+        "math_agent": {
+            "import_path": "agent.compiled_graph"
+        },
+        "multi_agent_system": {
+            "description": "A multi-agent system with travel advisor and hotel advisor.",
+            "module": "multi-agent",
+            "function": "multi_agent_system"
+        }
+    },
+    "python": {
+        "dependencies": [
+            "langchain-anthropic",
+            "langchain",
+            "langgraph",
+            "typing-extensions",
+            "pydantic>=2.0"
+        ]
+    },
+    "env": {
+        "ANTHROPIC_API_KEY": "${ANTHROPIC_API_KEY}"
+    },
+    "python_version": "3.11"
+} 

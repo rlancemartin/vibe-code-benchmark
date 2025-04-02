@@ -1,0 +1,20 @@
+{
+    "dependencies": [
+        "langchain_core",
+        "langchain_anthropic",
+        "langgraph",
+        "typing_extensions",
+        "pydantic"
+    ],
+    "graphs": {
+        "joke_workflow": "./prompt_chaining.py:compiled_graph",
+        "content_router": "./router.py:compiled_graph",
+        "joke_evaluator": "./evaluator_optimizer.py:compiled_graph",
+        "math_agent": "./agent.py:compiled_graph",
+        "travel_agents": "./multi_agent.py:compiled_graph"
+    },
+    "env": {
+        "ANTHROPIC_API_KEY": "${ANTHROPIC_API_KEY}"
+    },
+    "python_version": "3.11"
+}

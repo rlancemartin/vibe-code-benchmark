@@ -1,0 +1,19 @@
+{
+  "name": "travel-planning-system",
+  "description": "A LangGraph multi-agent system with travel and hotel advisors using Command for handoffs",
+  "python": {
+    "sdk_version": ">=0.0.1",
+    "module": "multi-agent",
+    "graph_class_name": "travel_planning_system",
+    "env": {
+      "ANTHROPIC_API_KEY": "${ANTHROPIC_API_KEY}"
+    }
+  },
+  "deployment": {
+    "autoscaling": {
+      "initial_scale": 1,
+      "min_scale": 1,
+      "max_scale": 3
+    }
+  }
+}

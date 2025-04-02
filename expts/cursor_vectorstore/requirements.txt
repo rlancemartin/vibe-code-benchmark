@@ -1,0 +1,5 @@
+langchain_openai>=0.0.8
+langchain_core>=0.1.27
+langgraph>=0.0.20
+typing_extensions>=4.7.1
+pydantic>=2.5.2 

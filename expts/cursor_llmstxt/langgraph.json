@@ -1,0 +1,27 @@
+{
+  "graphs": [
+    {
+      "name": "content-router",
+      "description": "A graph that routes inputs to the appropriate LLM call (story, poem, or joke)",
+      "entrypoint": "router.compiled_graph"
+    },
+    {
+      "name": "joke-evaluator-optimizer",
+      "description": "A graph that evaluates jokes and improves those of low quality",
+      "entrypoint": "evaluator-optimizer.compiled_graph"
+    },
+    {
+      "name": "math-agent",
+      "description": "A graph that binds math tools to perform arithmetic operations",
+      "entrypoint": "agent.compiled_graph"
+    },
+    {
+      "name": "travel-hotel-advisor",
+      "description": "A multi-agent workflow with travel_advisor and hotel_advisor that use Command for handoff",
+      "entrypoint": "multi-agent.compiled_graph"
+    }
+  ],
+  "build": {
+    "python_packages": ["langchain_anthropic==0.1.1", "pydantic>=2.0.0"]
+  }
+} 

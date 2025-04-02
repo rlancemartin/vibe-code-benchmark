@@ -1,0 +1,1 @@
+# Make claude_llmstxt_update directory a package
