@@ -1,4 +1,4 @@
-# Vibe Coding Benchmark
+# Vibe Code Benchmark
 
 ## Overview
 
@@ -19,6 +19,8 @@ Code agents like [Cursor](https://www.cursor.com/) have transformed how many of 
 3. **Optimized llms.txt**: Use an [LLM to re-write](https://github.com/rlancemartin/llmstxt_architect) the LangGraph `llms.txt` file with clearer, more consistent page descriptions specifically designed for LLMs to understand.
 
 4. **Vector Database**: Build a [vector database](https://github.com/langchain-ai/vibe-code-benchmark/blob/main/context_and_mcp/build_langgraph_context.py) of the LangGraph documentation (8,000 token chunks, k=3 retrieval, using OpenAI `text-embedding-3-large`) with an [MCP server](https://github.com/langchain-ai/vibe-code-benchmark/blob/main/context_and_mcp/langgraph_vectorstore_mcp.py) for semantic search.
+
+![context](https://github.com/user-attachments/assets/f982e785-4229-40a3-a891-9745e984ec5f)
 
 ## LangGraph Challenges
 

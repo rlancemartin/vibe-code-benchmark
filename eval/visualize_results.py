@@ -202,6 +202,7 @@ def generate_bar_charts(df, source_file=None, output_dir=None, color_scheme="nav
     Note: This function will always show deployment scores if they are available in the data,
     regardless of the show_deployment flag.
     """
+    
     # Create figure with four subplots (2x2 grid)
     fig, axes = plt.subplots(2, 2, figsize=(20, 20))
     
@@ -224,7 +225,7 @@ def generate_bar_charts(df, source_file=None, output_dir=None, color_scheme="nav
     title = 'Aggregate Performance Comparison (% of Maximum Possible Score)'
     if has_deployment:
         title += ' (with Deployment)'
-    fig.suptitle(title, fontsize=22)
+    fig.suptitle(title, fontsize=26)
     
     # Define metrics to include in preferred order with readable names for legend
     # Start with base metrics that must exist
@@ -322,9 +323,9 @@ def generate_bar_charts(df, source_file=None, output_dir=None, color_scheme="nav
         width=0.8
     )
     
-    ax_top_left.set_title('Component Scores by Code Agent', fontsize=18)
-    ax_top_left.set_ylabel('Percentage of Maximum Possible', fontsize=16)
-    ax_top_left.set_xlabel('Code Agent', fontsize=16)
+    ax_top_left.set_title('Component Scores by Code Agent', fontsize=24)
+    ax_top_left.set_ylabel('Percentage of Maximum Possible', fontsize=18)
+    ax_top_left.set_xlabel('Code Agent', fontsize=18)
     
     # Set y-axis limits to 0-100 for percentage
     ax_top_left.set_ylim(0, 100)
@@ -335,9 +336,9 @@ def generate_bar_charts(df, source_file=None, output_dir=None, color_scheme="nav
     # Update legend with our friendly labels
     handles, labels = ax_top_left.get_legend_handles_labels()
     friendly_labels = [metric_labels[m] for m in labels]
-    ax_top_left.legend(handles, friendly_labels, fontsize=14)
-    plt.setp(ax_top_left.get_xticklabels(), fontsize=16, rotation=0)
-    plt.setp(ax_top_left.get_yticklabels(), fontsize=14)
+    ax_top_left.legend(handles, friendly_labels, fontsize=16)
+    plt.setp(ax_top_left.get_xticklabels(), fontsize=18, rotation=0)
+    plt.setp(ax_top_left.get_yticklabels(), fontsize=16)
     
     # 2. Total Score by Code Agent (bottom left)
     # Sort specifically for the total score plot - highest first
@@ -355,9 +356,9 @@ def generate_bar_charts(df, source_file=None, output_dir=None, color_scheme="nav
         width=0.8
     )
     
-    ax_bottom_left.set_title('Total Score by Code Agent', fontsize=18)
-    ax_bottom_left.set_ylabel('Percentage of Maximum Possible', fontsize=16)
-    ax_bottom_left.set_xlabel('Code Agent', fontsize=16)
+    ax_bottom_left.set_title('Total Score by Code Agent', fontsize=24)
+    ax_bottom_left.set_ylabel('Percentage of Maximum Possible', fontsize=18)
+    ax_bottom_left.set_xlabel('Code Agent', fontsize=18)
     
     # Set y-axis limits to 0-100 for percentage
     ax_bottom_left.set_ylim(0, 100)
@@ -369,8 +370,8 @@ def generate_bar_charts(df, source_file=None, output_dir=None, color_scheme="nav
     for i, v in enumerate(agent_data_total['Total Score']):
         ax_bottom_left.text(i, v + 2, f"{v:.1f}%", ha='center', fontsize=14, fontweight='bold')
     
-    plt.setp(ax_bottom_left.get_xticklabels(), fontsize=16, rotation=0)
-    plt.setp(ax_bottom_left.get_yticklabels(), fontsize=14)
+    plt.setp(ax_bottom_left.get_xticklabels(), fontsize=18, rotation=0)
+    plt.setp(ax_bottom_left.get_yticklabels(), fontsize=16)
     
     # 3. Component Metrics by Context Type (top right)
     context_data = df.groupby(['context_type'])[component_metrics + total_metric].sum().reset_index()
@@ -430,9 +431,9 @@ def generate_bar_charts(df, source_file=None, output_dir=None, color_scheme="nav
         width=0.8
     )
     
-    ax_top_right.set_title('Component Scores by Context Type', fontsize=18)
-    ax_top_right.set_ylabel('Percentage of Maximum Possible', fontsize=16)
-    ax_top_right.set_xlabel('Context Type', fontsize=16)
+    ax_top_right.set_title('Component Scores by Context Type', fontsize=24)
+    ax_top_right.set_ylabel('Percentage of Maximum Possible', fontsize=18)
+    ax_top_right.set_xlabel('Context Type', fontsize=18)
     
     # Set y-axis limits to 0-100 for percentage
     ax_top_right.set_ylim(0, 100)
@@ -443,9 +444,9 @@ def generate_bar_charts(df, source_file=None, output_dir=None, color_scheme="nav
     # Update legend with our friendly labels
     handles, labels = ax_top_right.get_legend_handles_labels()
     friendly_labels = [metric_labels[m] for m in labels]
-    ax_top_right.legend(handles, friendly_labels, fontsize=14)
-    plt.setp(ax_top_right.get_xticklabels(), fontsize=16, rotation=0)
-    plt.setp(ax_top_right.get_yticklabels(), fontsize=14)
+    ax_top_right.legend(handles, friendly_labels, fontsize=16)
+    plt.setp(ax_top_right.get_xticklabels(), fontsize=18, rotation=0)
+    plt.setp(ax_top_right.get_yticklabels(), fontsize=16)
     
     # 4. Total Score by Context Type (bottom right)
     # Sort specifically for the total score plot - highest first
@@ -463,9 +464,9 @@ def generate_bar_charts(df, source_file=None, output_dir=None, color_scheme="nav
         width=0.8
     )
     
-    ax_bottom_right.set_title('Total Score by Context Type', fontsize=18)
-    ax_bottom_right.set_ylabel('Percentage of Maximum Possible', fontsize=16)
-    ax_bottom_right.set_xlabel('Context Type', fontsize=16)
+    ax_bottom_right.set_title('Total Score by Context Type', fontsize=24)
+    ax_bottom_right.set_ylabel('Percentage of Maximum Possible', fontsize=18)
+    ax_bottom_right.set_xlabel('Context Type', fontsize=18)
     
     # Set y-axis limits to 0-100 for percentage
     ax_bottom_right.set_ylim(0, 100)
@@ -477,8 +478,8 @@ def generate_bar_charts(df, source_file=None, output_dir=None, color_scheme="nav
     for i, v in enumerate(context_data_total['Total Score']):
         ax_bottom_right.text(i, v + 2, f"{v:.1f}%", ha='center', fontsize=14, fontweight='bold')
     
-    plt.setp(ax_bottom_right.get_xticklabels(), fontsize=16, rotation=0)
-    plt.setp(ax_bottom_right.get_yticklabels(), fontsize=14)
+    plt.setp(ax_bottom_right.get_xticklabels(), fontsize=18, rotation=0)
+    plt.setp(ax_bottom_right.get_yticklabels(), fontsize=16)
     
     # Save figure
     plt.tight_layout(rect=[0, 0, 1, 0.95])
@@ -655,9 +656,9 @@ def generate_grouped_bar_chart(df, source_file=None, output_dir=None, show_deplo
     
     # Add title and labels
     title = 'A well designed llms.txt results in the best performance'
-    plt.title(title, fontsize=20)
-    plt.xlabel('IDE / Code Agent', fontsize=16)
-    plt.ylabel('Score', fontsize=16)
+    plt.title(title, fontsize=26)
+    plt.xlabel('IDE / Code Agent', fontsize=24)  # Much larger axis label
+    plt.ylabel('Score', fontsize=24)  # Much larger axis label
     
     # Note: We already renamed the indices when creating the pivot table
     # so no need to rename them again here
@@ -674,8 +675,8 @@ def generate_grouped_bar_chart(df, source_file=None, output_dir=None, show_deplo
     plt.legend(handles, updated_labels, title='Context Type', fontsize=14, title_fontsize=16)
     
     # Format text and labels
-    plt.xticks(fontsize=16, rotation=0)  # Larger horizontal labels
-    plt.yticks(fontsize=14)
+    plt.xticks(fontsize=24, rotation=0)  # Much larger tick labels
+    plt.yticks(fontsize=20)  # Larger tick labels
     
     # No need to rename tick labels as we've already renamed the index
     
@@ -687,7 +688,7 @@ def generate_grouped_bar_chart(df, source_file=None, output_dir=None, show_deplo
                 # Calculate the bar position
                 x_pos = i + (j - len(contexts)/2 + 0.5) * (0.8 / len(contexts))
                 plt.text(x_pos, value + 2, f"{value:.1f}%", 
-                         ha='center', va='bottom', fontsize=12, fontweight='bold')
+                         ha='center', va='bottom', fontsize=18, fontweight='bold')
             except KeyError:
                 pass  # Skip if combination doesn't exist
     
@@ -844,9 +845,9 @@ def generate_component_grouped_bar_chart(df, source_file=None, output_dir=None, 
         )
         
         # Add title and labels
-        ax.set_title(f'{metric_titles.get(metric, metric)}', fontsize=18)
-        ax.set_xlabel('IDE / Code Agent', fontsize=14)
-        ax.set_ylabel('Percentage of Maximum Possible', fontsize=14)
+        ax.set_title(f'{metric_titles.get(metric, metric)}', fontsize=24)
+        ax.set_xlabel('IDE / Code Agent', fontsize=24)  # Much larger axis label
+        ax.set_ylabel('Percentage of Maximum Possible', fontsize=24)  # Much larger axis label
         
         # Set y-axis limits to 0-100 for percentage
         ax.set_ylim(0, 100)
@@ -858,13 +859,13 @@ def generate_component_grouped_bar_chart(df, source_file=None, output_dir=None, 
         if i == 0:
             handles, labels = ax.get_legend_handles_labels()
             updated_labels = [context_display_names.get(label, label) for label in labels]
-            ax.legend(handles, updated_labels, title='Context Type', fontsize=12, title_fontsize=14)
+            ax.legend(handles, updated_labels, title='Context Type', fontsize=16, title_fontsize=18)
         else:
             ax.get_legend().remove()  # Remove redundant legends from other subplots
         
         # Format text and labels
-        ax.tick_params(axis='x', labelsize=16, rotation=0)  # Larger horizontal labels
-        ax.tick_params(axis='y', labelsize=12)
+        ax.tick_params(axis='x', labelsize=24, rotation=0)  # Much larger tick labels
+        ax.tick_params(axis='y', labelsize=20)  # Larger tick labels
         
         # No need to rename tick labels as we've already renamed the index
         
@@ -876,12 +877,12 @@ def generate_component_grouped_bar_chart(df, source_file=None, output_dir=None, 
                     # Calculate the bar position
                     x_pos = j + (k - len(contexts)/2 + 0.5) * (0.8 / len(contexts))
                     ax.text(x_pos, value + 2, f"{value:.1f}%", 
-                             ha='center', va='bottom', fontsize=10, fontweight='bold')
+                             ha='center', va='bottom', fontsize=16, fontweight='bold')
                 except KeyError:
                     pass  # Skip if combination doesn't exist
     
     # Add overall title
-    fig.suptitle('Component Scores by IDE and Context Type', fontsize=22, y=0.98)
+    fig.suptitle('Component Scores by IDE and Context Type', fontsize=26, y=0.98)
     
     # Save figure
     filename_base = 'component_grouped_bar_chart'
