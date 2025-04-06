@@ -1,0 +1,6 @@
+Experiment,Script,Success,Import Success,LLM Score,Deployment Score
+llama4-maverick_llmsfull,agent.py,0,1,0.0,0
+llama4-maverick_llmsfull,evaluator_optimizer.py,0,1,0.0,0
+llama4-maverick_llmsfull,multi_agent.py,0,1,0.0,0
+llama4-maverick_llmsfull,prompt_chaining.py,1,1,1.0,0
+llama4-maverick_llmsfull,router.py,0,1,0.0,0
