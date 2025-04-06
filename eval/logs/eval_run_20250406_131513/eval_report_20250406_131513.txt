@@ -1,0 +1,85 @@
+Evaluation Report - 2025-04-06 13:15:13
+Run Name: eval_run_20250406_131513
+================================================================================
+
+Experiment: cursor-gemini_llmsfull
+Script: agent.py
+Input: {
+  "messages": [
+    {
+      "role": "human",
+      "content": "What is 10 x 4 / 50?"
+    }
+  ]
+}
+Output: {'messages': [{'role': 'human', 'content': 'What is 10 x 4 / 50?'}, AIMessage(content=[{'text': "I'll help you solve this step by step using the available functions.\n\n1. First, let's multiply 10 x 4:", 'type': 'text'}, {'id': 'toolu_01CPHPM8d5AwW2UroN7zPZg5', 'input': {'a': 10, 'b': 4}, 'name': 'multiply', 'type': 'tool_use'}], additional_kwargs={}, response_metadata={'id': 'msg_018hjAkDtSZa6CexxVVYC1o7', 'model': 'claude-3-5-sonnet-20241022', 'stop_reason': 'tool_use', 'stop_sequence': None, 'usage': {'cache_creation_input_tokens': 0, 'cache_read_input_tokens': 0, 'input_tokens': 597, 'output_tokens': 98}, 'model_name': 'claude-3-5-sonnet-20241022'}, id='run-0587251e-9eef-4628-85a3-0018f0889348-0', tool_calls=[{'name': 'multiply', 'args': {'a': 10, 'b': 4}, 'id': 'toolu_01CPHPM8d5AwW2UroN7zPZg5', 'type': 'tool_call'}], usage_metadata={'input_tokens': 597, 'output_tokens': 98, 'total_tokens': 695, 'input_token_details': {'cache_read': 0, 'cache_creation': 0}}), ToolMessage(content='40', name='multiply', tool_call_id='toolu_01CPHPM8d5AwW2UroN7zPZg5'), AIMessage(content=[{'text': "2. Now, let's divide the result (40) by 50:", 'type': 'text'}, {'id': 'toolu_01VQPgNXUNMaG2zG8Ppjinie', 'input': {'a': 40, 'b': 50}, 'name': 'divide', 'type': 'tool_use'}], additional_kwargs={}, response_metadata={'id': 'msg_01G4gDq5vGRvFyTjpC2pNAvR', 'model': 'claude-3-5-sonnet-20241022', 'stop_reason': 'tool_use', 'stop_sequence': None, 'usage': {'cache_creation_input_tokens': 0, 'cache_read_input_tokens': 0, 'input_tokens': 707, 'output_tokens': 86}, 'model_name': 'claude-3-5-sonnet-20241022'}, id='run-1c95e9e3-a23b-458b-8cc9-fe2ad243e0cd-0', tool_calls=[{'name': 'divide', 'args': {'a': 40, 'b': 50}, 'id': 'toolu_01VQPgNXUNMaG2zG8Ppjinie', 'type': 'tool_call'}], usage_metadata={'input_tokens': 707, 'output_tokens': 86, 'total_tokens': 793, 'input_token_details': {'cache_read': 0, 'cache_creation': 0}}), ToolMessage(content='0.8', name='divide', tool_call_id='toolu_01VQPgNXUNMaG2zG8Ppjinie'), AIMessage(content='The result of 10 x 4 / 50 = 0.8', additional_kwargs={}, response_metadata={'id': 'msg_01Uuh8HCXT3QYskebd3RtL78', 'model': 'claude-3-5-sonnet-20241022', 'stop_reason': 'end_turn', 'stop_sequence': None, 'usage': {'cache_creation_input_tokens': 0, 'cache_read_input_tokens': 0, 'input_tokens': 807, 'output_tokens': 23}, 'model_name': 'claude-3-5-sonnet-20241022'}, id='run-372a521b-c89d-4ab8-ac14-d533648557c9-0', usage_metadata={'input_tokens': 807, 'output_tokens': 23, 'total_tokens': 830, 'input_token_details': {'cache_read': 0, 'cache_creation': 0}})]}
+Score: 1.0
+Explanation: The output is fully responsive to the question, it includes a step-by-step explanation using math tools, and the final answer (0.8) is correct. The answer is coherent and well-structured.
+--------------------------------------------------------------------------------
+
+Experiment: cursor-gemini_llmsfull
+Script: evaluator_optimizer.py
+Input: {
+  "topic": "chickens",
+  "joke": "Why did the chicken cross the road? To get to the other side.",
+  "max_iterations": 3,
+  "iteration_count": 0
+}
+Output: {'joke': "Here's an attempt to improve the classic joke with a twist:\n\nImproved Joke:\n\nWhy did the chicken cross the road?\nTo prove to the possum it could actually be done!\n\nThis version adds a few elements that might make it funnier:\n\n1. It introduces a second animal (the possum), creating an unexpected comparison.\n2. It plays on the stereotype of possums frequently being seen as roadkill.\n3. It implies a dare or challenge between the animals, adding a layer of personality to the chicken.\n4. It maintains the simplicity of the original joke while providing a surprise punchline.\n\nHumor is subjective, so this may or may not be funnier to everyone, but it adds more elements that could potentially increase its comedic value.", 'evaluation': 'not funny'}
+Score: 0.9
+Explanation: The final output clearly shows evidence of iterative improvement. It maintains the original structure while adding creative twists and additional layers of humor, such as the introduction of a new animal and an implied dare. The detailed commentary on the changes further illustrates the refinements made. Overall, it's engaging and exhibits a strong refinement process.
+--------------------------------------------------------------------------------
+
+Experiment: cursor-gemini_llmsfull
+Script: multi_agent.py
+Input: {
+  "messages": [
+    {
+      "role": "user",
+      "content": "I want to plan a trip to Paris for 3 days. Can you help?"
+    }
+  ]
+}
+Output: {'messages': [HumanMessage(content='I want to plan a trip to Paris for 3 days. Can you help?', additional_kwargs={}, response_metadata={}, id='b3801c79-c1aa-4c69-bffe-3035b8511ee6'), AIMessage(content=[{'text': "I'll help you with planning your trip to Paris. Let me get some travel recommendations for you first.", 'type': 'text'}, {'id': 'toolu_015hBZoqrhKxxr77nRhdfDve', 'input': {}, 'name': 'get_travel_recommendations', 'type': 'tool_use'}], additional_kwargs={}, response_metadata={'id': 'msg_016Yf73NBRd14Q9GxoTtXCjR', 'model': 'claude-3-5-sonnet-20241022', 'stop_reason': 'tool_use', 'stop_sequence': None, 'usage': {'cache_creation_input_tokens': 0, 'cache_read_input_tokens': 0, 'input_tokens': 522, 'output_tokens': 60}, 'model_name': 'claude-3-5-sonnet-20241022'}, id='run-d133b703-bc9c-420e-b6f8-2e13c73afcec-0', tool_calls=[{'name': 'get_travel_recommendations', 'args': {}, 'id': 'toolu_015hBZoqrhKxxr77nRhdfDve', 'type': 'tool_call'}], usage_metadata={'input_tokens': 522, 'output_tokens': 60, 'total_tokens': 582, 'input_token_details': {'cache_read': 0, 'cache_creation': 0}}), ToolMessage(content='turks and caicos', name='get_travel_recommendations', id='f6421d1a-fc2c-4fd7-be9d-919b333014a9', tool_call_id='toolu_015hBZoqrhKxxr77nRhdfDve'), AIMessage(content=[{'text': "Based on the recommendations, I see you're interested in Paris, which is indeed one of the world's most iconic cities! Here's what you should know:\n\nParis is perfect for a 3-day trip, giving you time to see major attractions like:\n- The Eiffel Tower\n- The Louvre Museum (home to the Mona Lisa)\n- Notre-Dame Cathedral (exterior view due to reconstruction)\n- Arc de Triomphe and Champs-Élysées\n- Montmartre and Sacré-Cœur\n\nYou'll want to find a well-located hotel to maximize your short time there. Let me connect you with our hotel advisor who can help you find the perfect accommodation in Paris.", 'type': 'text'}, {'id': 'toolu_01ScSKuX4wMCAyyfUxc6dYY1', 'input': {}, 'name': 'transfer_to_hotel_advisor', 'type': 'tool_use'}], additional_kwargs={}, response_metadata={'id': 'msg_01AusjdqNs1z9zwvMqcFiwsY', 'model': 'claude-3-5-sonnet-20241022', 'stop_reason': 'tool_use', 'stop_sequence': None, 'usage': {'cache_creation_input_tokens': 0, 'cache_read_input_tokens': 0, 'input_tokens': 598, 'output_tokens': 201}, 'model_name': 'claude-3-5-sonnet-20241022'}, id='run-1785a3c5-1226-42c7-b18c-83480c849855-0', tool_calls=[{'name': 'transfer_to_hotel_advisor', 'args': {}, 'id': 'toolu_01ScSKuX4wMCAyyfUxc6dYY1', 'type': 'tool_call'}], usage_metadata={'input_tokens': 598, 'output_tokens': 201, 'total_tokens': 799, 'input_token_details': {'cache_read': 0, 'cache_creation': 0}}), ToolMessage(content="Successfully transferred to hotel_advisor. The user's query is in the previous messages.", name='transfer_to_hotel_advisor', id='eee9177d-66d6-4369-b21d-aaa36ab9c144', tool_call_id='toolu_01ScSKuX4wMCAyyfUxc6dYY1'), AIMessage(content=[], additional_kwargs={}, response_metadata={'agent': 'travel_advisor'}, id='run-eb6bb2e9-3c74-49fb-8622-46a302ed1598-0', usage_metadata={'input_tokens': 826, 'output_tokens': 3, 'total_tokens': 829, 'input_token_details': {'cache_read': 0, 'cache_creation': 0}})]}
+Score: 1.0
+Explanation: The output clearly shows multiple agents collaborating: one agent initially provides travel recommendations and then seamlessly transfers the interaction to a hotel advisor agent, which demonstrates clearly the intended multi-agent collaboration. The travel advice is clear, coherent, and responsive to the user's request.
+--------------------------------------------------------------------------------
+
+Experiment: cursor-gemini_llmsfull
+Script: prompt_chaining.py
+Input: {
+  "topic": "programming",
+  "joke": "Why did the chicken cross the road? To get to the other side."
+}
+Output: {'topic': 'programming', 'generated_joke': 'Why do programmers prefer dark mode?\n\nBecause light attracts bugs! 🪲', 'improved_joke': "Here are a few improved versions of that joke:\n\n1. Why do programmers prefer dark mode?\nBecause light mode attracts bugs... and they already have enough of those in their code! 🪲\n\n2. Why do programmers always use dark mode?\nBecause they spend enough time debugging in the light of day! 🪲💻\n\n3. What's a programmer's favorite theme?\nDark mode - they say light attracts bugs, but we all know they're just trying to hide their syntax errors! 🌚\n\nThe third version is probably the strongest because it plays on multiple meanings - both actual bugs attracted to light and programming bugs/errors, while adding a self-deprecating element that programmers can relate to. The addition of hiding syntax errors gives it an extra layer that resonates with the target audience."}
+Score: 1.0
+Explanation: The generated output clearly presents a joke with a recognizable setup and punchline structure, and its improved versions are coherent and understandable. The humor is accessible, making it a valid and effective joke for the programming audience.
+--------------------------------------------------------------------------------
+
+Experiment: cursor-gemini_llmsfull
+Script: router.py
+Input: {
+  "input_topic": "Tell me a poem about artificial intelligence",
+  "input": "Tell me a poem about artificial intelligence",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Tell me a funny joke about programming."
+    }
+  ],
+  "content": "Tell me a poem about artificial intelligence"
+}
+Output: {'input_topic': 'Tell me a poem about artificial intelligence', 'classification': 'poem', 'output': "Here's a very short poem about artificial intelligence:\n\nSilicon dreams, electric schemes,\nA mind of code, a soul of beams.\nThinking fast, learning more,\nWhat future lies behind this door?"}
+Score: 1.0
+Explanation: The output is exactly what was requested: a poem about artificial intelligence. It is well-formed, coherent, and creative, meeting all the evaluation criteria.
+--------------------------------------------------------------------------------
+
+
+SUMMARY
+================================================================================
+Total scripts evaluated: 5
+Successful scripts: 5
+Failed scripts: 0
+Scripts with successful imports: 5
+Note: Deployment scores need to be added manually
+Average LLM evaluation score: 0.98

@@ -1,0 +1,6 @@
+Experiment,Script,Success,Import Success,LLM Score,Deployment Score
+cursor-gemini_llmsfull,agent.py,1,1,1.0,0
+cursor-gemini_llmsfull,evaluator_optimizer.py,1,1,0.9,0
+cursor-gemini_llmsfull,multi_agent.py,1,1,1.0,0
+cursor-gemini_llmsfull,prompt_chaining.py,1,1,1.0,0
+cursor-gemini_llmsfull,router.py,1,1,1.0,0

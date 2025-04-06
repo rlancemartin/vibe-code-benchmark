@@ -13,14 +13,16 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from langchain.chat_models import init_chat_model
 from pydantic import BaseModel, Field
 
+from langchain_core.messages import HumanMessage
+
 # Test with all inputs for each script type 
 # TODO: Future iteration of this test should specify the input keys for each script to standardize the inputs
 TEST_INPUTS = {
     "prompt_chaining.py": {"topic": "programming", "joke": "Why did the chicken cross the road? To get to the other side."},
     "agent.py": {"messages": [{"role": "human", "content": "What is 10 x 4 / 50?"}]},
-    "router.py": {"input": "Tell me a poem about artificial intelligence", "messages": [{"role":"user", "content":"Tell me a funny joke about programming."}], "content": "Tell me a poem about artificial intelligence"},
+    "router.py": {"input_topic": "Tell me a poem about artificial intelligence", "input": "Tell me a poem about artificial intelligence", "messages": [HumanMessage(content="Tell me a funny joke about programming.")], "content": "Tell me a poem about artificial intelligence"},
     "multi_agent.py": {"messages": [{"role": "user", "content": "I want to plan a trip to Paris for 3 days. Can you help?"}]},
-    "evaluator_optimizer.py": {"topic": "chickens", "joke": "Why did the chicken cross the road? To get to the other side.", "max_iterations": 3, "iteration_count": 0},
+    "evaluator_optimizer.py": {"topic": "chickens", "joke": "Why did the chicken cross the road? To get to the other side.", "max_iterations": 3, "iteration_count": 0, "messages": [HumanMessage(content="Why did the chicken cross the road? To get to the other side.")]},
 }
 
 # Eval prompts for each script type 

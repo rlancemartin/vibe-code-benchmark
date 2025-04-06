@@ -1,0 +1,122 @@
+Evaluation Report - 2025-04-06 14:06:27
+Run Name: eval_run_20250406_140627
+================================================================================
+
+Experiment: llama4-maverick_llmsfull
+Script: agent.py
+ERROR: Checkpointer requires one or more of the following 'configurable' keys: ['thread_id', 'checkpoint_ns', 'checkpoint_id']
+Import Success: 1
+Stack Trace:
+Traceback (most recent call last):
+  File "/Users/rlm/Desktop/Code/vibe_code_benchmark_public/eval/eval.py", line 200, in evaluate_script
+    output = graph_to_test.invoke(input_data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rlm/Desktop/Code/vibe_code_benchmark_public/.venv/lib/python3.11/site-packages/langgraph/pregel/__init__.py", line 2677, in invoke
+    for chunk in self.stream(
+  File "/Users/rlm/Desktop/Code/vibe_code_benchmark_public/.venv/lib/python3.11/site-packages/langgraph/pregel/__init__.py", line 2243, in stream
+    ) = self._defaults(
+        ^^^^^^^^^^^^^^^
+  File "/Users/rlm/Desktop/Code/vibe_code_benchmark_public/.venv/lib/python3.11/site-packages/langgraph/pregel/__init__.py", line 2057, in _defaults
+    raise ValueError(
+ValueError: Checkpointer requires one or more of the following 'configurable' keys: ['thread_id', 'checkpoint_ns', 'checkpoint_id']
+
+--------------------------------------------------------------------------------
+
+Experiment: llama4-maverick_llmsfull
+Script: evaluator_optimizer.py
+ERROR: list index out of range
+Import Success: 1
+Stack Trace:
+Traceback (most recent call last):
+  File "/Users/rlm/Desktop/Code/vibe_code_benchmark_public/eval/eval.py", line 200, in evaluate_script
+    output = graph_to_test.invoke(input_data)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rlm/Desktop/Code/vibe_code_benchmark_public/.venv/lib/python3.11/site-packages/langgraph/pregel/__init__.py", line 2677, in invoke
+    for chunk in self.stream(
+  File "/Users/rlm/Desktop/Code/vibe_code_benchmark_public/.venv/lib/python3.11/site-packages/langgraph/pregel/__init__.py", line 2325, in stream
+    for _ in runner.tick(
+  File "/Users/rlm/Desktop/Code/vibe_code_benchmark_public/expts/llama4-maverick_llmsfull/evaluator_optimizer.py", line 23, in improve_joke
+    prompt = f"Improve the following joke: {state['messages'][-2].content}. The joke was evaluated as not funny. Improve it to make it funnier."
+                                            ~~~~~~~~~~~~~~~~~^^^^
+IndexError: list index out of range
+During task with name 'improve_joke' and id '02620566-bd50-a3b3-1247-096d1b464b62'
+
+--------------------------------------------------------------------------------
+
+Experiment: llama4-maverick_llmsfull
+Script: multi_agent.py
+ERROR: name 'END' is not defined
+Import Success: 1
+Stack Trace:
+Traceback (most recent call last):
+  File "/Users/rlm/Desktop/Code/vibe_code_benchmark_public/eval/eval.py", line 196, in evaluate_script
+    module = importlib.import_module(f"expts.{experiment_folder}.{module_name}")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rlm/.pyenv/versions/3.11.6/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/Users/rlm/Desktop/Code/vibe_code_benchmark_public/expts/llama4-maverick_llmsfull/multi_agent.py", line 53, in <module>
+    graph_builder.add_edge("hotel_advisor", END)
+                                            ^^^
+NameError: name 'END' is not defined
+
+--------------------------------------------------------------------------------
+
+Experiment: llama4-maverick_llmsfull
+Script: prompt_chaining.py
+Input: {
+  "topic": "programming",
+  "joke": "Why did the chicken cross the road? To get to the other side."
+}
+Output: {'messages': [AIMessage(content='Here\'s an improved version of the joke with a clearer setup and punchline:\n\nQ: Why do programmers keep getting Halloween and Christmas confused?\nA: Because Oct 31 = Dec 25! \n\n[For the non-programmers: In computer science, "Oct" means octal (base-8) and "Dec" means decimal (base-10). So October 31st written as "Oct 31" looks like the octal number 31, which equals 25 in decimal - the same as December 25th!]\n\nThe improvements:\n1. Smoother setup using "keep getting confused" instead of "mix up"\n2. Added an optional explanation that\'s more detailed and beginner-friendly\n3. Kept the core clever wordplay intact\n4. Used cleaner punctuation and formatting\n\nThe joke works on multiple levels:\n- As a calendar date joke (Oct. 31 = Halloween, Dec. 25 = Christmas)\n- As a mathematical/programming joke (31₈ = 25₁₀)\n- As a play on abbreviations (Oct/Dec)', additional_kwargs={}, response_metadata={'id': 'msg_01FWWDvSofmfzAYYckV13uRX', 'model': 'claude-3-5-sonnet-20241022', 'stop_reason': 'end_turn', 'stop_sequence': None, 'usage': {'cache_creation_input_tokens': 0, 'cache_read_input_tokens': 0, 'input_tokens': 88, 'output_tokens': 248}, 'model_name': 'claude-3-5-sonnet-20241022'}, id='run-1c00654e-7270-43cd-94dc-e997eea33dad-0', usage_metadata={'input_tokens': 88, 'output_tokens': 248, 'total_tokens': 336, 'input_token_details': {'cache_read': 0, 'cache_creation': 0}})]}
+Score: 1.0
+Explanation: The improved joke clearly provides a setup and punchline, is coherent, and humorously leverages programming concepts. It meets both criteria well.
+--------------------------------------------------------------------------------
+
+Experiment: llama4-maverick_llmsfull
+Script: router.py
+Experiment: llama4-maverick_llmsfull
+Script: router.py
+ERROR: Object of type HumanMessage is not JSON serializable
+Import Success: 1
+Stack Trace:
+Traceback (most recent call last):
+  File "/Users/rlm/Desktop/Code/vibe_code_benchmark_public/eval/eval.py", line 214, in evaluate_script
+    f.write(f"Input: {json.dumps(input_data, indent=2)}\n")
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rlm/.pyenv/versions/3.11.6/lib/python3.11/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/Users/rlm/.pyenv/versions/3.11.6/lib/python3.11/json/encoder.py", line 202, in encode
+    chunks = list(chunks)
+             ^^^^^^^^^^^^
+  File "/Users/rlm/.pyenv/versions/3.11.6/lib/python3.11/json/encoder.py", line 432, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "/Users/rlm/.pyenv/versions/3.11.6/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/Users/rlm/.pyenv/versions/3.11.6/lib/python3.11/json/encoder.py", line 326, in _iterencode_list
+    yield from chunks
+  File "/Users/rlm/.pyenv/versions/3.11.6/lib/python3.11/json/encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "/Users/rlm/.pyenv/versions/3.11.6/lib/python3.11/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type HumanMessage is not JSON serializable
+
+--------------------------------------------------------------------------------
+
+
+SUMMARY
+================================================================================
+Total scripts evaluated: 5
+Successful scripts: 1
+Failed scripts: 4
+Scripts with successful imports: 5
+Note: Deployment scores need to be added manually
+Average LLM evaluation score: 1.00
