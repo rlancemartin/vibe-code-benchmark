@@ -1,0 +1,25 @@
+{
+  "graph": "multi-agent.py",
+  "entry_point": "travel_advisor",
+  "nodes": [
+    {
+      "name": "travel_advisor",
+      "type": "llm",
+      "model": "claude-3-5-sonnet-latest",
+      "prompt": "You are a travel advisor. Help users plan trips and hand off to the hotel advisor when ready.",
+      "output_key": "travel_plan"
+    },
+    {
+      "name": "hotel_advisor",
+      "type": "llm",
+      "model": "claude-3-5-sonnet-latest",
+      "prompt": "You are a hotel advisor. Recommend hotels based on the user's travel plan.",
+      "output_key": "hotel_recommendation"
+    }
+  ],
+  "edges": [
+    {"from": "travel_advisor", "to": "hotel_advisor"},
+    {"from": "hotel_advisor", "to": "END"}
+  ]
+}
+
